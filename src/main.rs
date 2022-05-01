@@ -12,7 +12,7 @@ static ALLOCATOR: bump_allocator::BumpAllocator = bump_allocator::BumpAllocator 
 fn main() {
     let s1 = format!("allocating a string1");
     let s2 = format!("allocating a string2");
-    let _v: Vec<usize> = vec![];
+    let _b = Box::new(1);
 
     println!("{s1}");
     println!("{s2}");
