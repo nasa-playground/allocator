@@ -1,4 +1,7 @@
+#![feature(const_mut_refs)]
+
 mod bump_allocator;
+mod linked_list_allocator;
 
 #[global_allocator]
 static ALLOCATOR: bump_allocator::BumpAllocator = bump_allocator::BumpAllocator::new();
