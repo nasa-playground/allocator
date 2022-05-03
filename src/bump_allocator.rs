@@ -11,6 +11,15 @@ pub struct BumpAllocator {
     pub(crate) next: AtomicUsize,
 }
 
+impl BumpAllocator {
+    pub const fn new() -> Self {
+        Self {
+            mem: UnsafeCell::new([0u8; MEM_SIZE]),
+            next: AtomicUsize::new(0),
+        }
+    }
+}
+
 unsafe impl Sync for BumpAllocator {}
 
 unsafe impl GlobalAlloc for BumpAllocator {
